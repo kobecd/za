@@ -3,9 +3,11 @@ package com.del.express.controller;
 import com.del.model.express.Person;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -24,6 +26,14 @@ public class IndexController {
         people.add(p3);
         model.addAttribute("singlePerson",single);
         model.addAttribute("people",people);
+        return "index";
+    }
+
+
+    @PostMapping(value = "/upload/file")
+    public String upload(Model model)
+    {
+        model.addAttribute("mark","传递参数MARK 时间： "+new Date());
         return "index";
     }
 }
