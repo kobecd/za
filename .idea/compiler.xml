@@ -7,9 +7,23 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="business" />
         <module name="core" />
-        <module name="express" />
+        <module name="post" />
+        <module name="server-common" />
+        <module name="server-security" />
+        <module name="server-template" />
+        <module name="simple" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-common" target="1.8" />
+      <module name="business" target="1.8" />
+      <module name="client-mgrsite" target="1.8" />
+      <module name="client-website" target="1.8" />
+      <module name="db" target="1.8" />
+      <module name="express" target="1.8" />
+      <module name="post" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
