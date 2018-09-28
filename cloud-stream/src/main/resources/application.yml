@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: service-A #创建消费组，这样这个应用的多个实例接受消息的时候，只有一个成员真正收到消息进行处理
+  application:
+    name: cloud-stream
+  rabbitmq:
+      host: 192.168.217.130
+      port: 5672
+      username: shuai
+      password: shuai
+      virtualHost: /
+

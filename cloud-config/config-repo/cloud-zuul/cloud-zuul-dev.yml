@@ -1,0 +1,12 @@
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: hello-service
+    api-b:
+      path: /api-b/**
+      serviceId: feign-consumer
+
+  AccessFilter: ## 禁用过滤器类名
+    pre:  ## 禁用过滤器类型
+      disable: true

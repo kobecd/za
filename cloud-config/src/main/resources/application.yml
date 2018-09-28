@@ -1,0 +1,35 @@
+spring:
+  application:
+      name: cloud-config
+  rabbitmq:
+    host: 192.168.217.130
+    port: 5672
+    username: shuai
+    password: shuai
+    virtualHost: /
+  cloud:
+    config:
+      server:
+        health:
+          enabled: false
+        git:
+          uri: https://gitee.com/fshow/springcloud.git
+          search-paths: cloud-config/config-repo/{application}
+          username: 1173227952@qq.com
+          password: 15801244608shuai
+          basedir: D:\temp\springConfig-memory  #备份配置文件存储位置，以防一些不可知情况
+      #  overrides: # 配置Spring Cloud客户端公用的一些属性，且会覆盖客户端配置的属性
+      #    name: cloud-config
+server:
+  port: 7001
+
+#为配置中心添加安全保护
+security:
+  user:
+    name: user
+    password: 123456
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8802/eureka/,http://peer2:8803/eureka/

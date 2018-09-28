@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: cloud-sleuth-zipkin
+  datasource:
+    schema: classpath:/mysql.sql
+    url: jdbc:mysql://bdm256204414.my3w.com:3306/bdm256204414_db
+    username: bdm256204414
+    password: 15801244608shuai
+    continue-on-error: true
+    initialize: true
+  rabbitmq:
+    host: 192.168.217.130
+    port: 5672
+    username: shuai
+    password: shuai
+    virtualHost: /
+server:
+  port: 9411
+
+zipkin:
+  storage:
+    type: mysql

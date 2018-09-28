@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://bdm256204414.my3w.com:3306/bdm256204414_db
+    username: bdm256204414
+    password: 15801244608shuai
+    driver-class-name: com.mysql.jdbc.Driver
+  #是访问port不是15672,15672是api和管理界面的port,一下是连接外部服务器/虚拟机中rabbitmq的配置
+  rabbitmq:
+    host: 192.168.217.130
+    port: 5672
+    username: shuai
+    password: shuai
+    virtualHost: /
+    #如果要进行消息回调，则这里必须要设置为true
+    publisherConfirms: true
+server:
+  port: 8821

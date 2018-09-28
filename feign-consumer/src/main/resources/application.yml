@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: feign-consumer
+server:
+  port: 9001
+eureka:
+  client:
+    serviceUrl:
+         defaultZone: http://peer1:8802/eureka/,http://peer2:8803/eureka/

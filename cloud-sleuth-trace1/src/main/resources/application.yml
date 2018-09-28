@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: trace-1
+  rabbitmq:
+        host: 192.168.217.130
+        port: 5672
+        username: shuai
+        password: shuai
+        virtualHost: /
+  sleuth:
+    sampler:
+      percentage: 0.8
+server:
+  port: 9101
+eureka:
+  client:
+    serviceUrl:
+          defaultZone: http://peer2:8803/eureka/, http://peer1:8802/eureka/
+

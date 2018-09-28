@@ -1,0 +1,29 @@
+elasticsearch:
+  ip: 192.168.217.130
+  port: 9300
+  pool: 5
+  cluster-name: my-es
+#spring:
+#  data:
+#    elasticsearch:
+#      repositories:
+#            enable: true
+#      cluster-name: my-es
+#      cluster-nodes: 192.168.217.130:9300
+server:
+  port: 8820
+
+spring:
+  rabbitmq:
+      host: 192.168.217.130
+      port: 5672
+      username: shuai
+      password: shuai
+      virtualHost: /
+      #如果要进行消息回调，则这里必须要设置为true
+      publisherConfirms: true
+  datasource:
+      url: jdbc:mysql://bdm256204414.my3w.com:3306/bdm256204414_db
+      username: bdm256204414
+      password: 15801244608shuai
+      driver-class-name: com.mysql.jdbc.Driver

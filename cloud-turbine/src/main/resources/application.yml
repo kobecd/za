@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: cloud-turbine
+
+server:
+  port: 8989
+
+management:
+  port: 8990
+
+eureka:
+  client:
+    serviceUrl:
+          defaultZone: http://peer2:8803/eureka/, http://peer1:8802/eureka/
+turbine:
+  app-config: RIBBON-CONSUMER
+  cluster-name-expression: new String("default")
+  combine-host-port: true
+
+

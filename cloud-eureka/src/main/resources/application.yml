@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: cloud-eureka
+  profiles:
+    active: peer1
+
+server:
+  port: 8802
+eureka:
+  instance:
+    hostname: peer1
+    prefer-ip-address: true
+  server:
+      enable-self-preservation: false # 关闭注册中心的自我保护机制，确保注册中心可以把不可用的实例正确剔除（本机调试使用，实际生产环境需设置为true）
+  client:
+    register-with-eureka: false #由于该应用为注册中心，所以设置为false，代表不向注册中心注册自己。
+    fetch-registry: false #由于注册中心的职责就是维护服务实例，它并不需要去检索服务，所以也设置为false。
+    serviceUrl:
+      defaultZone: http://peer2:8803/eureka/
+
+---
+
+spring:
+  profiles: peer2
+  application:
+    name: cloud-eureka
+server:
+  port: 8803
+eureka:
+  instance:
+    hostname: peer2
+  server:
+      enable-self-preservation: false # 关闭注册中心的自我保护机制，确保注册中心可以把不可用的实例正确剔除（本机调试使用，实际生产环境需设置为true）
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://peer1:8802/eureka/ #向另一台eureka服务中心注册自己，实现高可用
+                                              # PS:需要在hosts文件中配置了域名解析映射
+                                              #   127.0.0.1 --->peer1
+                                              #   127.0.0.1 --->peer2

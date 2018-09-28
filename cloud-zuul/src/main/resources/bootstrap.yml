@@ -1,0 +1,33 @@
+server:
+  port: 8501
+spring:
+  application:
+    name: cloud-zuul # 与cloud-zuul-repo配置仓库中cloud-zuul.yml的名字一致
+  cloud:
+    config:
+      failFast: true # 由于Config Server的问题，减少客户端很多等待启动时间
+      username: user # 由于配置中心开启了安全防护，因此连接时需要加入验证信息，不然启动时报401错误
+      password: 123456
+      lable: master # 默认使用master主分支
+      profile: dev # 可以指定dev、prod、test来切换配置文件，如cloud-zuul-dev.yml
+      fail-fast: true # 开启优先判断cloud-config获取是否正常，实现失败快速响应
+     # uri: http://localhost:7001/ #由于开启了通过服务（可实现配置中心的高可用）来访问cloud-config的功能，因此不采用固定uri的方式
+      discovery:
+        enabled: true # 开启通过服务来访问cloud-config的功能
+        service-id: cloud-config # 指定cloud-config注册的服务名，通过服务名去访问cloud-config服务,实现配置中心的高可用
+  rabbitmq:
+    host: 192.168.217.130
+    port: 5672
+    username: shuai
+    password: shuai
+    virtualHost: /
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:8802/eureka/,http://peer2:8803/eureka/
+
+
+
+

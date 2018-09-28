@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: hello-service
+server:
+  port: 8801
+
+eureka:
+  client:
+    serviceUrl:
+          defaultZone: http://peer1:8802/eureka/,http://peer2:8803/eureka/
