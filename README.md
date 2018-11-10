@@ -1,5 +1,14 @@
 # spring-cloud项目
 
+单台电脑配置两个git账号
+--
+https://blog.csdn.net/jifaliwo123/article/details/79126785
+
+
+
+
+
+
 #### 项目介绍
 此项目根据spring-cloud微服务实战一书中的案例进行编写，内容较为基础，可根据具体业务扩展。
 
